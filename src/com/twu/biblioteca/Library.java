@@ -12,8 +12,11 @@ public class Library {
 
     public void printListOfBooks(){
         System.out.println(Enumerations.Messages.AVAILABLE_BOOKS);
+        System.out.println(Enumerations.Messages.INFO_BOOKS);
         for (Book b : listOfbooks){
-            System.out.println(b.getTitle());
+            System.out.println(
+                    b.getTitle() + "   |   " + b.getAuthor() +"   |   " + b.getYear()
+            );
         }
     }
 }

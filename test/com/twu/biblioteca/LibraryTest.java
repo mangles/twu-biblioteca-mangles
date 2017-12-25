@@ -26,14 +26,15 @@ public class LibraryTest {
     }
 
     @Test
-    public void ListOfAvailableBooksIsDisplayed(){
+    public void ListOfAvailableBooksIsDisplayedWithAllDetails(){
         ArrayList<Book> booksList;
         booksList = biblioteca.defineSomeBooks();
         library.addBooks(booksList);
         library.printListOfBooks();
         assertEquals("List of available books in the Library:\n" +
-                "Awesome book 1\n" +
-                "Awesome book 2\n" +
-                "Awesome book 3\n", outputStream.toString());
+                "Title   |   Author  |   Year of publication\n" +
+                "Awesome book 1   |   Author 1   |   2017\n" +
+                "Awesome book 2   |   Author 2   |   2016\n" +
+                "Awesome book 3   |   Author 3   |   2015\n", outputStream.toString());
     }
 }

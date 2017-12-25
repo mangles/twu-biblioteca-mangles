@@ -23,9 +23,9 @@ public class BibliotecaApp {
 
     }
     public ArrayList<Book> defineSomeBooks(){
-        Book b1 = new Book("Awesome book 1");
-        Book b2 = new Book("Awesome book 2");
-        Book b3 = new Book("Awesome book 3");
+        Book b1 = new Book("Awesome book 1", "Author 1", 2017);
+        Book b2 = new Book("Awesome book 2", "Author 2", 2016);
+        Book b3 = new Book("Awesome book 3", "Author 3", 2015);
         booksList.add(b1);
         booksList.add(b2);
         booksList.add(b3);
