@@ -8,5 +8,8 @@ public class Enumerations {
         public static final String INFO_BOOKS = "Title   |   Author  |   Year of publication";
         public static final String HELP = "How can I help you? Select an option:\n";
         public static final String INVALID_OPTION = "Select a valid option!\n";
+        public static final String ENTER_BOOK_TITLE = "Type the title of the book you want to check out\n";
+        public static final String THANK_YOU = "Thank you! Enjoy the book\n";
+        public static final String BOOK_NOT_FOUND = "That book is not available\n";
     }
 }
