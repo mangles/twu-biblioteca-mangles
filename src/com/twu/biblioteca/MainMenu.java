@@ -5,10 +5,13 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class MainMenu {
-    private Map<Integer, ListBooksOption> options = new HashMap<Integer, ListBooksOption>();
+    private Library library;
+    private Map<Integer, Options> options = new HashMap<Integer, Options>();
 
-    public MainMenu(){
+    public MainMenu(Library library){
+        this.library = library;
         options.put(1, new ListBooksOption());
+        options.put(2, new QuitProgramOption());
     }
 
     public void showListOfOptions(){
@@ -20,11 +23,25 @@ public class MainMenu {
         }
     }
 
-    public void selectOption(Library library){
+    public void selectOption(){
         showListOfOptions();
         Scanner reader = new Scanner(System.in);
-        int n = reader.nextInt();
-        options.get(n).execute(library);
+        int selectedOption = reader.nextInt();
+        isValidOption(selectedOption);
+        selectOption();
+    }
 
+    public void isValidOption(int selectedOption){
+        boolean isValid = options.containsKey(selectedOption);
+        executeOption(isValid, selectedOption);
+    }
+
+    public void executeOption(boolean isValid, int selectedOption){
+        if(isValid){
+            options.get(selectedOption).execute(library);
+        }else{
+            System.out.println(Enumerations.Messages.INVALID_OPTION);
+
+        }
     }
 }

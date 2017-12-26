@@ -15,8 +15,8 @@ public class BibliotecaApp {
         Library library = new Library();
         booksList = defineSomeBooks();
         library.addBooks(booksList);
-        MainMenu mainMenu = new MainMenu();
-        mainMenu.selectOption(library);
+        MainMenu mainMenu = new MainMenu(library);
+        mainMenu.selectOption();
 
     }
 

@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class ListBooksOption {
+public class ListBooksOption implements Options{
 
     public String name() {
         return "List of available Books";

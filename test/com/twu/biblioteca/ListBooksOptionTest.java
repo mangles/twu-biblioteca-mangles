@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class LibraryTest {
+public class ListBooksOptionTest {
 
     private ByteArrayOutputStream outputStream;
     private BibliotecaApp biblioteca;
@@ -30,7 +30,8 @@ public class LibraryTest {
         ArrayList<Book> booksList;
         booksList = biblioteca.defineSomeBooks();
         library.addBooks(booksList);
-        library.printListOfBooks();
+        MainMenu mainMenu = new MainMenu(library);
+        mainMenu.executeOption(true, 1);
         assertEquals("List of available books in the Library:\n" +
                 "Title   |   Author  |   Year of publication\n" +
                 "Awesome book 1   |   Author 1   |   2017\n" +

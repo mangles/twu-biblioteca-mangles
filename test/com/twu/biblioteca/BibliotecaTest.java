@@ -24,6 +24,6 @@ public class BibliotecaTest {
     public void WelcomeMessageIsDisplayed(){
 
         biblioteca.welcomeMessage();
-        assertEquals("Welcome to The Bangalore Public Library!\n", outputStream.toString());
+        assertEquals("WELCOME TO THE BANGALORE PUBLIC LIBRARY!\n\n", outputStream.toString());
     }
 }
