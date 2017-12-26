@@ -27,7 +27,7 @@ public class Library {
     }
     public void checkOutBook(){
         String title = askBookTitle();
-        Book bookToCheckOut = findBookByTitle(title);
+        Book bookToCheckOut = findBookByTitle(title, listOfbooks);
         if (bookToCheckOut == null){
             System.out.println(Enumerations.Messages.BOOK_NOT_FOUND);
         }else{
@@ -37,8 +37,8 @@ public class Library {
         }
     }
 
-    private Book findBookByTitle(String title) {
-        for (Book b : new ArrayList<Book>(listOfbooks)) {
+    private Book findBookByTitle(String title, ArrayList listofItems) {
+        for (Book b : new ArrayList<Book>(listofItems)) {
             if(b.getTitle().equals(title)){
                 return b;
             }
@@ -50,5 +50,17 @@ public class Library {
         System.out.println(Enumerations.Messages.ENTER_BOOK_TITLE);
         Scanner reader = new Scanner(System.in);
         return reader.nextLine();
+    }
+
+    public void checkInBook() {
+        String title = askBookTitle();
+        Book bookToCheckIn = findBookByTitle(title, checkedOutbooks);
+        if (bookToCheckIn == null){
+            System.out.println(Enumerations.Messages.BOOK_NOT_KNOWN);
+        }else{
+            checkedOutbooks.remove(bookToCheckIn);
+            listOfbooks.add(bookToCheckIn);
+            System.out.println(Enumerations.Messages.BOOK_RETURNED);
+        }
     }
 }

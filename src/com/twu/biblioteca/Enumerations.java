@@ -11,5 +11,7 @@ public class Enumerations {
         public static final String ENTER_BOOK_TITLE = "Type the title of the book you want to check out\n";
         public static final String THANK_YOU = "Thank you! Enjoy the book\n";
         public static final String BOOK_NOT_FOUND = "That book is not available\n";
+        public static final String BOOK_RETURNED = "Thank you for returning the book.\n";
+        public static final String BOOK_NOT_KNOWN = "That is not a valid book to return.\n";
     }
 }

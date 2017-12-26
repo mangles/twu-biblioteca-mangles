@@ -31,7 +31,8 @@ public class MainMenuTest {
                 "\n" +
                 "1 - List of available Books\n" +
                 "2 - Check out a Book\n" +
-                "3 - Quit Program\n", outputStream.toString());
+                "3 - Check in your Book\n" +
+                "4 - Quit Program\n", outputStream.toString());
     }
 
     @Test

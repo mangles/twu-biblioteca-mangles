@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class CheckOutOptionTest {
+public class CheckInOptionTest {
 
     private BibliotecaApp biblioteca;
     private Library library;
@@ -20,33 +20,36 @@ public class CheckOutOptionTest {
     }
 
     @Test
-    public void CheckOutOptionIsListed() {
-        CheckOutOption checkOut = new CheckOutOption();
-        assertEquals("Check out a Book", checkOut.name());
+    public void CheckInOptionIsListed() {
+        CheckInOption checkIn = new CheckInOption();
+        assertEquals("Check in your Book", checkIn.name());
 
     }
 
     @Test
-    public void RemoveBookFromAvailableBooks(){
+    public void ReturnBookFromCheckedOutBooks(){
         ArrayList<Book> booksList;
         booksList = biblioteca.defineSomeBooks();
         library.addBooks(booksList);
         ByteArrayInputStream in = new ByteArrayInputStream("Awesome book 1".getBytes());
         System.setIn(in);
         library.checkOutBook();
-        assertEquals(2, booksList.size());
-        assertEquals(1, library.getCheckedOutbooks().size());
+        ByteArrayInputStream in2 = new ByteArrayInputStream("Awesome book 1".getBytes());
+        System.setIn(in2);
+        library.checkInBook();
+        assertEquals(3, booksList.size());
+        assertEquals(0, library.getCheckedOutbooks().size());
 
     }
 
     @Test
-    public void BookNotFoundInLibrary(){
+    public void BookToReturnNotFoundInLibrary(){
         ArrayList<Book> booksList;
         booksList = biblioteca.defineSomeBooks();
         library.addBooks(booksList);
         ByteArrayInputStream in = new ByteArrayInputStream("Book Awesome 1".getBytes());
         System.setIn(in);
-        library.checkOutBook();
+        library.checkInBook();
         assertEquals(3, booksList.size());
         assertEquals(0, library.getCheckedOutbooks().size());
 
