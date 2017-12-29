@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class CheckOutOption implements Options{
+public class CheckOutBookOption implements Options{
 
     public String name() {
         return "Check out a Book";
@@ -8,7 +8,7 @@ public class CheckOutOption implements Options{
 
     public void execute(Library library) {
         library.printListOfBooks();
-        library.checkOutBook();
+        library.checkOutElement();
     }
 
 

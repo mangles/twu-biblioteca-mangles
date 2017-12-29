@@ -1,26 +1,17 @@
 package com.twu.biblioteca;
 
-public class Book {
+public class Book extends Elements{
 
-    private String title;
     private String author;
-    private int year;
 
     public Book(String title, String author, int year){
-        this.title = title;
+        super(title, year);
         this.author = author;
-        this.year = year;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
+    @Override
     public String getAuthor() {
         return author;
     }
 
-    public int getYear() {
-        return year;
-    }
 }

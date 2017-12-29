@@ -1,13 +1,13 @@
 package com.twu.biblioteca;
 
-public class CheckInOption implements Options{
+public class CheckInBookOption implements Options{
 
     public String name() {
         return "Check in your Book";
     }
 
     public void execute(Library library) {
-        library.checkInBook();
+        library.checkInElement();
     }
 
 

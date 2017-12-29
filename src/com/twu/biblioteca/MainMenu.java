@@ -11,9 +11,12 @@ public class MainMenu {
     public MainMenu(Library library){
         this.library = library;
         options.put(1, new ListBooksOption());
-        options.put(2, new CheckOutOption());
-        options.put(3, new CheckInOption());
-        options.put(4, new QuitProgramOption());
+        options.put(2, new ListMoviesOption());
+        options.put(3, new CheckOutBookOption());
+        options.put(4, new CheckInBookOption());
+        options.put(5, new CheckOutMovieOption());
+        options.put(6, new CheckInMovieOption());
+        options.put(7, new QuitProgramOption());
     }
 
     public void showListOfOptions(){

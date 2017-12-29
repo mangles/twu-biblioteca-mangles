@@ -1,9 +1,6 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-
 public class BibliotecaApp {
-    private ArrayList<Book> booksList = new ArrayList<Book>();
 
     public static void main(String[] args) {
         BibliotecaApp biblioteca = new BibliotecaApp();
@@ -12,9 +9,7 @@ public class BibliotecaApp {
     }
     private void setup(){
         welcomeMessage();
-        Library library = new Library();
-        booksList = defineSomeBooks();
-        library.addBooks(booksList);
+        Library library = defineSomeBooksAndMovies();
         MainMenu mainMenu = new MainMenu(library);
         mainMenu.selectOption();
 
@@ -24,14 +19,22 @@ public class BibliotecaApp {
         System.out.println(Enumerations.Messages.WELCOME);
 
     }
-    public ArrayList<Book> defineSomeBooks(){
-        Book b1 = new Book("Awesome book 1", "Author 1", 2017);
-        Book b2 = new Book("Awesome book 2", "Author 2", 2016);
-        Book b3 = new Book("Awesome book 3", "Author 3", 2015);
-        booksList.add(b1);
-        booksList.add(b2);
-        booksList.add(b3);
-        return booksList;
+    public Library defineSomeBooksAndMovies(){
+        Library library = new Library();
+        Elements b1 = new Book("Awesome book 1", "Author 1", 2017);
+        Elements b2 = new Book("Awesome book 2", "Author 2", 2016);
+        Elements b3 = new Book("Awesome book 3", "Author 3", 2015);
+        library.addElements(b1);
+        library.addElements(b2);
+        library.addElements(b3);
+        Elements m1 = new Movie("Awesome movie 1", "Director 1", 2017, 9.0);
+        Elements m2 = new Movie("Awesome movie 2", "Director 2", 2016, 8.0);
+        Elements m3 = new Movie("Awesome movie 3", "Director 3", 2015, 5.4);
+        library.addElements(m1);
+        library.addElements(m2);
+        library.addElements(m3);
+        return library;
 
     }
+
 }

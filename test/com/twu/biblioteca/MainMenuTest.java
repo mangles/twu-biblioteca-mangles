@@ -30,9 +30,12 @@ public class MainMenuTest {
         assertEquals("How can I help you? Select an option:\n" +
                 "\n" +
                 "1 - List of available Books\n" +
-                "2 - Check out a Book\n" +
-                "3 - Check in your Book\n" +
-                "4 - Quit Program\n", outputStream.toString());
+                "2 - List of available Movies\n" +
+                "3 - Check out a Book\n" +
+                "4 - Check in your Book\n" +
+                "5 - Check out a Movie\n" +
+                "6 - Check in your Movie\n" +
+                "7 - Quit Program\n", outputStream.toString());
     }
 
     @Test
