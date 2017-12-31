@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Library {
-    private ArrayList<Elements> AvailableElements = new ArrayList<Elements>();
     private ArrayList<Elements> checkedOutElements = new ArrayList<Elements>();
+    private ArrayList<Elements> AvailableElements = new ArrayList<Elements>();
     private ArrayList<Elements> books = new ArrayList<Elements>();
     private ArrayList<Elements> movies = new ArrayList<Elements>();
 

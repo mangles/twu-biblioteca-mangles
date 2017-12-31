@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public class BibliotecaTest {
+public class WelcomeTest {
 
     private ByteArrayOutputStream outputStream;
     private BibliotecaApp biblioteca;

@@ -9,17 +9,32 @@ public class BibliotecaApp {
     }
     private void setup(){
         welcomeMessage();
-        Library library = defineSomeBooksAndMovies();
-        MainMenu mainMenu = new MainMenu(library);
-        mainMenu.selectOption();
-
+        Login login = defineSomeUsers();
+        if (login.authenticateUser()){
+            Library library = defineSomeBooksAndMovies();
+            MainMenu mainMenu = new MainMenu(library);
+            mainMenu.selectOption();
+        }else{
+            System.out.println(Enumerations.Messages.LOGIN_FAILURE);
+        }
     }
 
     public void welcomeMessage() {
         System.out.println(Enumerations.Messages.WELCOME);
 
     }
-    public Library defineSomeBooksAndMovies(){
+
+    public Login defineSomeUsers() {
+        Login login = new Login();
+        User u1 = new User("189-2017", "MyPassword1");
+        User u2 = new User("814-2012", "MyPassword2");
+        login.addUsers(u1);
+        login.addUsers(u2);
+        return login;
+
+    }
+
+    private Library defineSomeBooksAndMovies(){
         Library library = new Library();
         Elements b1 = new Book("Awesome book 1", "Author 1", 2017);
         Elements b2 = new Book("Awesome book 2", "Author 2", 2016);

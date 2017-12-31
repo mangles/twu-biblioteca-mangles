@@ -15,5 +15,8 @@ public class Enumerations {
         public static final String ELEMENT_NOT_FOUND = "That element is not available\n";
         public static final String ELEMENT_RETURNED = "Thank you for returning this.\n";
         public static final String ELEMENT_NOT_KNOWN = "That is not a valid element to return.\n";
+        public static final String LOGIN_USER = "Login to the Bangalore library! Introduce your library number: \n";
+        public static final String LOGIN_PASSWORD = "Introduce your password: \n";
+        public static final String LOGIN_FAILURE = "Invalid User and Password.\n";
     }
 }
