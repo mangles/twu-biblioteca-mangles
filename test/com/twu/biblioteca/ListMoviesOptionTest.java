@@ -14,6 +14,7 @@ public class ListMoviesOptionTest {
     private ByteArrayOutputStream outputStream;
     private BibliotecaApp biblioteca;
     private Library library;
+    private Login login;
 
     @Before
     public void setUp(){
@@ -21,7 +22,7 @@ public class ListMoviesOptionTest {
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
         biblioteca = new BibliotecaApp();
-        library = new Library();
+        library = new Library(login);
         Elements m1 = new Movie("Awesome movie 1", "Director 1", 2017, 9.0);
         Elements m2 = new Movie("Awesome movie 2", "Director 2", 2016, 8.0);
         Elements m3 = new Movie("Awesome movie 3", "Director 3", 2015, 5.4);

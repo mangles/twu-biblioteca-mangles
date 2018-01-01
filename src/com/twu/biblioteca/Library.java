@@ -7,8 +7,11 @@ import java.util.Scanner;
 public class Library {
     private ArrayList<Elements> checkedOutElements = new ArrayList<Elements>();
     private ArrayList<Elements> AvailableElements = new ArrayList<Elements>();
-    private ArrayList<Elements> books = new ArrayList<Elements>();
-    private ArrayList<Elements> movies = new ArrayList<Elements>();
+    private Login login;
+
+    public Library(Login login){
+        this.login = login;
+    }
 
 
     public ArrayList<Elements> getCheckedOutElements(){
@@ -20,10 +23,11 @@ public class Library {
     }
 
     public void addElements(Elements element){
-            Collections.addAll(AvailableElements, element);
+        Collections.addAll(AvailableElements, element);
     }
 
     private ArrayList<Elements> books(){
+        ArrayList<Elements> books = new ArrayList<Elements>();
         for(Elements item : AvailableElements){
             if(item instanceof Book){
                 books.add(item);
@@ -33,6 +37,7 @@ public class Library {
     }
 
     private ArrayList<Elements> movies(){
+        ArrayList<Elements> movies = new ArrayList<Elements>();
         for(Elements item : AvailableElements){
             if(item instanceof Movie){
                 movies.add(item);
@@ -97,5 +102,13 @@ public class Library {
             AvailableElements.add(elementToCheckIn);
             System.out.println(Enumerations.Messages.ELEMENT_RETURNED);
         }
+    }
+
+    public void getUserLogged() {
+        System.out.println(
+                        "Username: " + login.getCurrentUser().getName() + "\n" +
+                        "Email: " + login.getCurrentUser().getEmail() + "\n" +
+                        "Phone: " + login.getCurrentUser().getPhone()+ "\n"
+        );
     }
 }

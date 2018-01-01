@@ -15,6 +15,7 @@ public class ListBooksOptionTest {
     private ByteArrayOutputStream outputStream;
     private BibliotecaApp biblioteca;
     private Library library;
+    private Login login;
 
     @Before
     public void setUp(){
@@ -22,7 +23,7 @@ public class ListBooksOptionTest {
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
         biblioteca = new BibliotecaApp();
-        library = new Library();
+        library = new Library(login);
         Elements b1 = new Book("Awesome book 1", "Author 1", 2017);
         Elements b2 = new Book("Awesome book 2", "Author 2", 2016);
         Elements b3 = new Book("Awesome book 3", "Author 3", 2015);

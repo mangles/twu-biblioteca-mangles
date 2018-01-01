@@ -13,6 +13,7 @@ public class MainMenuTest {
 
     private ByteArrayOutputStream outputStream;
     private MainMenu mainMenu;
+    private Login login;
 
 
     @Before
@@ -20,7 +21,7 @@ public class MainMenuTest {
         outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
-        Library library = new Library();
+        Library library = new Library(login);
         mainMenu = new MainMenu(library);
     }
 
@@ -35,7 +36,8 @@ public class MainMenuTest {
                 "4 - Check in your Book\n" +
                 "5 - Check out a Movie\n" +
                 "6 - Check in your Movie\n" +
-                "7 - Quit Program\n", outputStream.toString());
+                "7 - See my profile information\n" +
+                "8 - Quit Program\n", outputStream.toString());
     }
 
     @Test

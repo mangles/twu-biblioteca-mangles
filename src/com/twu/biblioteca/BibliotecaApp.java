@@ -10,8 +10,8 @@ public class BibliotecaApp {
     private void setup(){
         welcomeMessage();
         Login login = defineSomeUsers();
+        Library library = defineSomeBooksAndMovies(login);
         if (login.authenticateUser()){
-            Library library = defineSomeBooksAndMovies();
             MainMenu mainMenu = new MainMenu(library);
             mainMenu.selectOption();
         }else{
@@ -26,16 +26,16 @@ public class BibliotecaApp {
 
     public Login defineSomeUsers() {
         Login login = new Login();
-        User u1 = new User("189-2017", "MyPassword1");
-        User u2 = new User("814-2012", "MyPassword2");
+        User u1 = new User("189-2017", "MyPassword1", "Mireia", "a@a.com", 612345678);
+        User u2 = new User("814-2012", "MyPassword2", "Mireia", "b@b.com", 698765432);
         login.addUsers(u1);
         login.addUsers(u2);
         return login;
 
     }
 
-    private Library defineSomeBooksAndMovies(){
-        Library library = new Library();
+    private Library defineSomeBooksAndMovies(Login login){
+        Library library = new Library(login);
         Elements b1 = new Book("Awesome book 1", "Author 1", 2017);
         Elements b2 = new Book("Awesome book 2", "Author 2", 2016);
         Elements b3 = new Book("Awesome book 3", "Author 3", 2015);

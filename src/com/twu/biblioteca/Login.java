@@ -6,10 +6,15 @@ import java.util.Scanner;
 
 public class Login {
     private ArrayList<User> listOfUsers = new ArrayList<User>();
+    private User currentUser;
 
 
     public void addUsers(User users){
         Collections.addAll(listOfUsers, users);
+    }
+
+    public User getCurrentUser(){
+        return currentUser;
     }
 
     public boolean authenticateUser() {
@@ -24,8 +29,10 @@ public class Login {
     public boolean validateLogin(String libraryNumber, String password) {
         boolean isValid = false;
         for(User user : listOfUsers) {
-            if(libraryNumber.equals(user.getLibraryNumber()) && password.equals(user.getPassword()))
+            if (libraryNumber.equals(user.getLibraryNumber()) && password.equals(user.getPassword())){
+                currentUser = user;
                 isValid = true;
+            }
         }
         return isValid;
     }
@@ -34,4 +41,5 @@ public class Login {
         Scanner reader = new Scanner(System.in);
         return reader.nextLine();
     }
+
 }

@@ -16,7 +16,8 @@ public class MainMenu {
         options.put(4, new CheckInBookOption());
         options.put(5, new CheckOutMovieOption());
         options.put(6, new CheckInMovieOption());
-        options.put(7, new QuitProgramOption());
+        options.put(7, new MyProfileOption());
+        options.put(8, new QuitProgramOption());
     }
 
     public void showListOfOptions(){
