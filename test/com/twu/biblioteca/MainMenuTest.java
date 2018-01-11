@@ -13,11 +13,10 @@ public class MainMenuTest {
 
     private ByteArrayOutputStream outputStream;
     private MainMenu mainMenu;
-    private Login login;
-
 
     @Before
-    public void setUp(){
+    public void setUp() {
+        Login login = new Login();
         outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
@@ -26,7 +25,7 @@ public class MainMenuTest {
     }
 
     @Test
-    public void ShowListOfOptionsTheUserCanDo(){
+    public void ShowListOfOptionsTheUserCanDo() {
         mainMenu.showListOfOptions();
         assertEquals("How can I help you? Select an option:\n" +
                 "\n" +
@@ -41,8 +40,10 @@ public class MainMenuTest {
     }
 
     @Test
-    public void ShouldThrowExceptionIfUserSelectsANotAValidOption(){
+    public void ShouldThrowExceptionIfUserSelectsANotAValidOption() {
         mainMenu.isValidOption(100);
         assertEquals("Select a valid option!\n\n", outputStream.toString());
     }
+
+    //TODO: How do we verify that an option is being executed?
 }

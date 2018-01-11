@@ -1,9 +1,11 @@
 package com.twu.biblioteca;
 
+//TODO: How does elements represent domain? What does it mean in this context?
 public class Elements {
 
     private String title;
     private int year;
+    //TODO: Unused fields
     private String author;
     private String director;
     private double rating;
@@ -13,6 +15,8 @@ public class Elements {
         this.year = year;
     }
 
+
+    //TODO: Do we need getters? If so, why?
     public String getTitle() {
         return title;
     }

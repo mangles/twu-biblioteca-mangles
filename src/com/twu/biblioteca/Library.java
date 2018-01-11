@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Library {
     private ArrayList<Elements> checkedOutElements = new ArrayList<Elements>();
+    //TODO: variable names in java start with a small letter
     private ArrayList<Elements> AvailableElements = new ArrayList<Elements>();
     private Login login;
 
@@ -46,6 +47,8 @@ public class Library {
         return movies;
     }
 
+
+    //TODO: Is there any duplication in this method and the next one?
     public void printListOfBooks(){
         System.out.println(Enumerations.Messages.AVAILABLE_BOOKS);
         System.out.println(Enumerations.Messages.INFO_BOOKS);
@@ -56,6 +59,7 @@ public class Library {
         }
     }
 
+    //TODO: Is there any duplication in this method and the previous one?
     public void printListOfMovies() {
         System.out.println(Enumerations.Messages.AVAILABLE_MOVIES);
         System.out.println(Enumerations.Messages.INFO_MOVIES);

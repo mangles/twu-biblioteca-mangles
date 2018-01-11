@@ -37,17 +37,18 @@ public class MainMenu {
         selectOption();
     }
 
+    //TODO: Is this method being used outside this class?
     public void isValidOption(int selectedOption){
         boolean isValid = options.containsKey(selectedOption);
         executeOption(isValid, selectedOption);
     }
 
+    //TODO: Introduce guard condition.
     public void executeOption(boolean isValid, int selectedOption){
         if(isValid){
             options.get(selectedOption).execute(library);
         }else{
             System.out.println(Enumerations.Messages.INVALID_OPTION);
-
         }
     }
 }

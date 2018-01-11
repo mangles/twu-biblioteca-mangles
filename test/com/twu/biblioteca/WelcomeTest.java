@@ -12,6 +12,7 @@ public class WelcomeTest {
     private ByteArrayOutputStream outputStream;
     private BibliotecaApp biblioteca;
 
+    //TODO: Do you really need setup here? It's only one single test
     @Before
     public void setUp(){
         outputStream = new ByteArrayOutputStream();
@@ -20,9 +21,11 @@ public class WelcomeTest {
         biblioteca = new BibliotecaApp();
     }
 
+    /*
+        TODO: Method names in java start with a small letter.
+     */
     @Test
     public void WelcomeMessageIsDisplayed(){
-
         biblioteca.welcomeMessage();
         assertEquals("WELCOME TO THE BANGALORE PUBLIC LIBRARY!\n\n", outputStream.toString());
     }

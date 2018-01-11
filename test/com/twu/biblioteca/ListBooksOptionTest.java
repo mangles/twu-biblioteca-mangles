@@ -13,8 +13,10 @@ import static org.junit.Assert.assertEquals;
 public class ListBooksOptionTest {
 
     private ByteArrayOutputStream outputStream;
+    //TODO: This field is never used
     private BibliotecaApp biblioteca;
     private Library library;
+    //TODO: This field is never used
     private Login login;
 
     @Before
@@ -23,6 +25,7 @@ public class ListBooksOptionTest {
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
         biblioteca = new BibliotecaApp();
+        //TODO: Since login is never initialized, it will be null. Can you not directly pass null here then?
         library = new Library(login);
         Elements b1 = new Book("Awesome book 1", "Author 1", 2017);
         Elements b2 = new Book("Awesome book 2", "Author 2", 2016);
