@@ -6,8 +6,7 @@ import java.util.Scanner;
 
 public class Library {
     private ArrayList<Elements> checkedOutElements = new ArrayList<Elements>();
-    //TODO: variable names in java start with a small letter
-    private ArrayList<Elements> AvailableElements = new ArrayList<Elements>();
+    private ArrayList<Elements> availableElements = new ArrayList<Elements>();
     private Login login;
 
     public Library(Login login){
@@ -20,16 +19,16 @@ public class Library {
     }
 
     public ArrayList<Elements> getAvailableElements(){
-        return AvailableElements;
+        return availableElements;
     }
 
     public void addElements(Elements element){
-        Collections.addAll(AvailableElements, element);
+        Collections.addAll(availableElements, element);
     }
 
     private ArrayList<Elements> books(){
         ArrayList<Elements> books = new ArrayList<Elements>();
-        for(Elements item : AvailableElements){
+        for(Elements item : availableElements){
             if(item instanceof Book){
                 books.add(item);
             }
@@ -39,7 +38,7 @@ public class Library {
 
     private ArrayList<Elements> movies(){
         ArrayList<Elements> movies = new ArrayList<Elements>();
-        for(Elements item : AvailableElements){
+        for(Elements item : availableElements){
             if(item instanceof Movie){
                 movies.add(item);
             }
@@ -47,36 +46,31 @@ public class Library {
         return movies;
     }
 
-
-    //TODO: Is there any duplication in this method and the next one?
     public void printListOfBooks(){
-        System.out.println(Enumerations.Messages.AVAILABLE_BOOKS);
-        System.out.println(Enumerations.Messages.INFO_BOOKS);
-        for (Elements b : books()){
-            System.out.println(
-                    b.getTitle() + "   |   " + b.getAuthor() +"   |   " + b.getYear()
-            );
-        }
+        ArrayList<Elements> booksList = books();
+        printDetails(Enumerations.Messages.AVAILABLE_BOOKS, Enumerations.Messages.INFO_BOOKS, booksList);
     }
 
-    //TODO: Is there any duplication in this method and the previous one?
-    public void printListOfMovies() {
-        System.out.println(Enumerations.Messages.AVAILABLE_MOVIES);
-        System.out.println(Enumerations.Messages.INFO_MOVIES);
-        for (Elements m : movies()){
-            System.out.println(
-                    m.getTitle() + "   |   " + m.getDirector() +"   |   " + m.getYear()+"   |   " + m.getRating()
-            );
+    public void printListOfMovies(){
+        ArrayList<Elements> moviesList = movies();
+        printDetails(Enumerations.Messages.AVAILABLE_MOVIES, Enumerations.Messages.INFO_MOVIES, moviesList);
+    }
+
+    private void printDetails(String availableMessage, String infoMessage, ArrayList<Elements> elements) {
+        System.out.println(availableMessage);
+        System.out.println(infoMessage);
+        for (Elements item : elements){
+            item.getDetails();
         }
     }
 
     public void checkOutElement(){
         String title = askElementTitle();
-        Elements elementToCheckOut = findElementByTitle(title, AvailableElements);
+        Elements elementToCheckOut = findElementByTitle(title, availableElements);
         if (elementToCheckOut == null){
             System.out.println(Enumerations.Messages.ELEMENT_NOT_FOUND);
         }else{
-            AvailableElements.remove(elementToCheckOut);
+            availableElements.remove(elementToCheckOut);
             checkedOutElements.add(elementToCheckOut);
             System.out.println(Enumerations.Messages.THANK_YOU);
         }
@@ -103,7 +97,7 @@ public class Library {
             System.out.println(Enumerations.Messages.ELEMENT_NOT_KNOWN);
         }else{
             checkedOutElements.remove(elementToCheckIn);
-            AvailableElements.add(elementToCheckIn);
+            availableElements.add(elementToCheckIn);
             System.out.println(Enumerations.Messages.ELEMENT_RETURNED);
         }
     }

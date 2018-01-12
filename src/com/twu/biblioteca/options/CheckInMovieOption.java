@@ -1,6 +1,9 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
 
-public class CheckInMovieOption implements Options{
+import com.twu.biblioteca.Library;
+import com.twu.biblioteca.Options;
+
+public class CheckInMovieOption implements Options {
 
     public String name() {
         return "Check in your Movie";

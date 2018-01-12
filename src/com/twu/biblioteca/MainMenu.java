@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.options.*;
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -43,12 +45,8 @@ public class MainMenu {
         executeOption(isValid, selectedOption);
     }
 
-    //TODO: Introduce guard condition.
     public void executeOption(boolean isValid, int selectedOption){
-        if(isValid){
-            options.get(selectedOption).execute(library);
-        }else{
-            System.out.println(Enumerations.Messages.INVALID_OPTION);
-        }
+        if(isValid){options.get(selectedOption).execute(library);}
+        System.out.println(Enumerations.Messages.INVALID_OPTION);
     }
 }

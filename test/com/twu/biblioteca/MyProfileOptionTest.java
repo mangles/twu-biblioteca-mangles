@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.options.MyProfileOption;
 import org.junit.Before;
 import org.junit.Test;
 

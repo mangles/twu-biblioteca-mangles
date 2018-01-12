@@ -1,6 +1,9 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.options;
 
-public class CheckOutMovieOption implements Options{
+import com.twu.biblioteca.Library;
+import com.twu.biblioteca.Options;
+
+public class CheckOutMovieOption implements Options {
 
     public String name() {
         return "Check out a Movie";
